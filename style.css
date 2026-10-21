@@ -1,0 +1,64 @@
+:root{--bg:#eef1f4;--panel:#fff;--line:#d5dbe1;--text:#1d2630;--muted:#64748b;--brand:#0f766e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+.top{background:var(--brand);color:#fff;padding:14px 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.top h1{font-size:1.2rem}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tools select,.tools input[type=color]{padding:6px;border-radius:6px;border:0;height:34px}
+button{cursor:pointer;border:0;border-radius:6px;padding:8px 14px;font-size:.9rem}
+.btn{background:#fff;color:var(--brand);font-weight:600}
+.btn.ghost{background:transparent;color:#fff;border:1px solid #ffffff88}
+:focus-visible{outline:2px solid #f59e0b;outline-offset:2px}
+.layout{display:grid;grid-template-columns:minmax(300px,440px) 1fr;gap:18px;padding:18px;max-width:1300px;margin:0 auto}
+.form{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;height:fit-content}
+.form h2{font-size:1rem;margin:16px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.form h2:first-child{margin-top:0}
+label{display:block;font-size:.8rem;color:var(--muted);margin:8px 0 3px}
+input[type=text],input[type=email],input[type=tel],textarea{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:6px;font:inherit;font-size:.9rem}
+textarea{min-height:70px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.item{border:1px dashed var(--line);border-radius:8px;padding:10px;margin-bottom:10px;background:#fafbfc}
+.item .rm{background:#fee2e2;color:#b91c1c;margin-top:8px;padding:5px 10px;font-size:.8rem}
+.add{background:var(--brand);color:#fff;font-size:.85rem}
+.err{color:#b91c1c;font-size:.85rem;margin-top:8px;min-height:1em}
+.preview-wrap{overflow:auto}
+
+/* Resume preview */
+#resume{background:#fff;width:794px;max-width:100%;min-height:1000px;margin:0 auto;padding:44px 48px;box-shadow:0 2px 12px #0002;font-size:13.5px;line-height:1.5;color:#222;--accent:#0f766e}
+#resume h1{font-size:2rem;line-height:1.15}
+#resume .role{color:var(--accent);font-weight:600;font-size:1.05rem;margin-top:2px}
+#resume .contact{margin-top:8px;color:#555;display:flex;flex-wrap:wrap;gap:4px 16px}
+#resume h3{color:var(--accent);font-size:.95rem;margin:20px 0 6px;padding-bottom:3px;border-bottom:2px solid var(--accent)}
+#resume .entry{margin-bottom:10px}
+#resume .entry-head{display:flex;justify-content:space-between;gap:10px;font-weight:600}
+#resume .entry-head span:last-child{color:#555;font-weight:400;white-space:nowrap}
+#resume .sub{color:#555}
+#resume .skills{display:flex;flex-wrap:wrap;gap:6px}
+#resume .skills span{background:#0f766e1a;border:1px solid var(--accent);border-radius:12px;padding:1px 10px}
+
+/* Templates */
+#resume.t-classic header{text-align:center}
+#resume.t-classic .contact{justify-content:center}
+#resume.t-modern header{background:var(--accent);color:#fff;margin:-44px -48px 0;padding:34px 48px}
+#resume.t-modern .role,#resume.t-modern .contact{color:#fff}
+#resume.t-minimal h3{border-bottom:1px solid #ccc;color:#222;text-transform:none}
+#resume.t-minimal .role{color:#555}
+#resume.t-minimal .skills span{background:none;border-color:#bbb}
+.empty{color:#9aa5b1;font-style:italic}
+
+/* Mobile */
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  #resume{padding:28px 22px}
+  #resume.t-modern header{margin:-28px -22px 0;padding:24px 22px}
+}
+
+/* Print (Download PDF) */
+@media print{
+  @page{margin:0}
+  body{background:#fff}
+  .top,.form,.err{display:none}
+  .layout{display:block;padding:0}
+  #resume{box-shadow:none;width:100%}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resume Builder</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="top">
+  <h1>Resume Builder</h1>
+  <div class="tools">
+    <select id="template" aria-label="Template">
+      <option value="t-classic">Classic</option>
+      <option value="t-modern">Modern</option>
+      <option value="t-minimal">Minimal</option>
+    </select>
+    <input type="color" id="accent" value="#0f766e" aria-label="Accent colour">
+    <button class="btn ghost" id="sample">Load sample</button>
+    <button class="btn ghost" id="clear">Clear all</button>
+    <button class="btn" id="download">Download PDF</button>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="form">
+    <h2>Personal details</h2>
+    <label for="name">Full name</label><input type="text" id="name" data-key="name">
+    <label for="title">Job title</label><input type="text" id="title" data-key="title">
+    <div class="row">
+      <div><label for="email">Email</label><input type="email" id="email" data-key="email"></div>
+      <div><label for="phone">Phone</label><input type="tel" id="phone" data-key="phone"></div>
+    </div>
+    <label for="address">City, State</label><input type="text" id="address" data-key="address">
+    <label for="link">LinkedIn / GitHub</label><input type="text" id="link" data-key="link">
+    <label for="summary">Career summary</label><textarea id="summary" data-key="summary"></textarea>
+
+    <h2>Education</h2>
+    <div id="eduList"></div>
+    <button class="add" data-add="edu">Add education</button>
+
+    <h2>Experience / Internship</h2>
+    <div id="expList"></div>
+    <button class="add" data-add="exp">Add experience</button>
+
+    <h2>Projects</h2>
+    <div id="projList"></div>
+    <button class="add" data-add="proj">Add project</button>
+
+    <h2>Skills</h2>
+    <label for="skills">Separate skills with commas</label>
+    <input type="text" id="skills" data-key="skills">
+    <div class="err" id="err" role="alert"></div>
+  </div>
+
+  <div class="preview-wrap"><div id="resume" class="t-classic"></div></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
